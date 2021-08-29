@@ -7,3 +7,8 @@ export interface Course {
   currency: string;
   date: Date | string;
 }
+
+export interface CourseSaleEvent {
+  isOnSale: boolean;
+  course: Course;
+}
