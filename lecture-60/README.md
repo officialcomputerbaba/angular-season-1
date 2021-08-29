@@ -2,9 +2,9 @@
 
 ---
 
-## 59. Component lifecycle: ngAfterViewInit & ViewChild | Angular In Depth (Hindi)
+## 60. Component lifecycle: ngAfterViewInit & ViewChild Component query | Angular In Depth (Hindi)
 
-## Youtube video [Link](https://youtu.be/bmH5OYWRcUw)
+## Youtube video [Link](https://youtu.be/FhaJaNpbczg)
 
 ---
 
