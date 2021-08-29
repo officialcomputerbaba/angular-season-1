@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { Course, CourseSaleEvent } from "../interfaces";
+import { Component, Input, OnInit } from "@angular/core";
+import { Course } from "../interfaces";
 
 @Component({
   selector: "app-course",
@@ -11,18 +11,10 @@ export class CourseComponent implements OnInit {
 
   isOnSale = false;
 
-  @Output()
-  courseOnSaleEvent = new EventEmitter<CourseSaleEvent>();
-
   constructor() {}
 
   ngOnInit(): void {
     this.checkSaleReady();
-  }
-
-  public toggleSale(value: boolean) {
-    this.isOnSale = value;
-    this.courseOnSaleEvent.emit({ course: this.course, isOnSale: this.isOnSale });
   }
 
   private checkSaleReady() {
