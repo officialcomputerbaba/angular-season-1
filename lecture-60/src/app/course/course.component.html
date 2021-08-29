@@ -1,0 +1,12 @@
+<section>
+    <h1>
+        Course: {{ course.name }}
+    </h1>
+    <h3>Category: {{ course.category }}</h3>
+
+    <p>
+        {{ course.description }}
+    </p>
+
+    <button *ngIf="isOnSale">Purchase now</button>
+</section>
