@@ -27,11 +27,11 @@ Use this tag/branch to checkout the code
 1st section
 
 ```sh
-git checkout lecture-60:a
+git checkout lecture-60-a
 ```
 
 2nd section
 
 ```sh
-git checkout lecture-60:b
+git checkout lecture-60-b
 ```
