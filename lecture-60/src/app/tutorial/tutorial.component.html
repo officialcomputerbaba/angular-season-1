@@ -5,3 +5,5 @@
         {{ coupon }}
     </li>
 </ul>
+
+<button *ngIf="isOnSale" (click)="stopSale()">Stop sale</button>
