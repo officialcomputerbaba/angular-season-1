@@ -1,4 +1,4 @@
-<app-course [course]="course"></app-course>
+<app-course [course]="course" (courseOnSaleEvent)="onSale($event)"></app-course>
 
 <ul>
     <li *ngFor="let coupon of coupons">

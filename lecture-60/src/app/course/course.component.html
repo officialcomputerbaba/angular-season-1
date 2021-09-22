@@ -8,6 +8,7 @@
         {{ course.description }}
     </p>
 
+    <button (click)="toggleSale(true)" *ngIf="!isOnSale">Mark for Sale</button>
 
     <button *ngIf="isOnSale">Purchase now</button>
 </section>

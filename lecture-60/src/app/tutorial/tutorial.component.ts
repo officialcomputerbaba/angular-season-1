@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from "@angular/core";
 import { CourseComponent } from "../course/course.component";
 import { of } from "rxjs";
+import { CourseSaleEvent } from "../interfaces";
 
 function getCoupons(id: number = 1) {
   const coupons = [];
@@ -36,9 +37,32 @@ export class TutorialComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.courseCmp.isOnSale) {
-      getCoupons(this.courseCmp.course.id).subscribe((coupons: string[]) => {
-        this.coupons = coupons;
+      setTimeout(() => {
+        this.onSale({ course: this.courseCmp.course, isOnSale: true });
       });
     }
+  }
+
+  onSale(evt: CourseSaleEvent) {
+    if (!evt.isOnSale) {
+      return;
+    }
+
+    this.coupons = [];
+    this.isOnSale = true;
+
+    getCoupons(evt.course.id).subscribe((coupons: string[]) => {
+      this.coupons = coupons;
+    });
+  }
+
+  stopSale() {
+    if (!this.courseCmp.isOnSale) {
+      return;
+    }
+
+    this.courseCmp.toggleSale(false);
+    this.coupons = [];
+    this.isOnSale = false;
   }
 }
