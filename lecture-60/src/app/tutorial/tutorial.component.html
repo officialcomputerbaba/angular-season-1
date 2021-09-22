@@ -1,9 +1,9 @@
 <app-course [course]="course" (courseOnSaleEvent)="onSale($event)"></app-course>
 
 <ul>
-  <li *ngFor="let coupon of coupons">
-    {{ coupon }}
-  </li>
+    <li *ngFor="let coupon of coupons">
+        {{ coupon }}
+    </li>
 </ul>
 
-<button *ngIf="courseCmp?.isOnSale" (click)="stopSale()">Stop sale</button>
+<button *ngIf="isOnSale" (click)="stopSale()">Stop sale</button>
