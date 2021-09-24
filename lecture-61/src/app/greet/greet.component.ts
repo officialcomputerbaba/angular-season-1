@@ -14,10 +14,12 @@ function isMorningTime() {
 export class GreetComponent implements OnInit {
   public isAllowed = false;
 
-  ngOnInit(): void {
+  constructor() {
     // your dervied calc
     if (isMorningTime()) {
       this.isAllowed = true;
     }
   }
+
+  ngOnInit(): void {}
 }
