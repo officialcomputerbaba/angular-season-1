@@ -8,10 +8,9 @@ import { Component, AfterViewInit } from "@angular/core";
 export class HelloComponent implements AfterViewInit {
   name = "Ajit";
   can = false;
+  message = "Morning";
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.name = "Vinay";
-    }); // optinal time
+    this.message = "Good Morning";
   }
 }
