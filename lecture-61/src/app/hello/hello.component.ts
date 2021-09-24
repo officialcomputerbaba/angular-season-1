@@ -10,6 +10,8 @@ export class HelloComponent implements AfterViewInit {
   can = false;
 
   ngAfterViewInit() {
-    this.name = "Vinay";
+    setTimeout(() => {
+      this.name = "Vinay";
+    }); // optinal time
   }
 }
