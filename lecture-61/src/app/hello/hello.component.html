@@ -2,6 +2,6 @@
 
 {{ name }}
 
-<p *ngIf="greetCmp">For you</p>
+<p *ngIf="greetCmp?.isAllowed">For you</p>
 
 <app-greet></app-greet>

@@ -7,7 +7,7 @@ import { GreetComponent } from "../greet/greet.component";
   styleUrls: ["./hello.component.css"],
 })
 export class HelloComponent {
-  @ViewChild(GreetComponent, { static: true }) greetCmp!: GreetComponent;
+  @ViewChild(GreetComponent) greetCmp!: GreetComponent;
 
   name = "Ajit";
 }
