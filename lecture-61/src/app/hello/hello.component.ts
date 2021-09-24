@@ -11,6 +11,8 @@ export class HelloComponent implements AfterViewInit {
   message = "Morning";
 
   ngAfterViewInit() {
-    this.message = "Good Morning";
+    setTimeout(() => {
+      this.message = "Good Morning";
+    }); // we can use promise also
   }
 }
