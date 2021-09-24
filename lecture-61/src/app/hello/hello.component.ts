@@ -1,18 +1,13 @@
-import { Component, AfterViewInit } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
+import { GreetComponent } from "../greet/greet.component";
 
 @Component({
   selector: "app-hello",
   templateUrl: "./hello.component.html",
   styleUrls: ["./hello.component.css"],
 })
-export class HelloComponent implements AfterViewInit {
-  name = "Ajit";
-  can = false;
-  message = "Morning";
+export class HelloComponent {
+  @ViewChild(GreetComponent) greetCmp!: GreetComponent;
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.message = "Good Morning";
-    }); // we can use promise also
-  }
+  name = "Ajit";
 }
