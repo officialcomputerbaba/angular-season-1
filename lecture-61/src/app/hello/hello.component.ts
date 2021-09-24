@@ -1,4 +1,26 @@
-import { AfterViewInit, Component } from "@angular/core";
+import { AfterViewInit, Component, Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+import { ajax } from "rxjs/ajax";
+import { tap } from "rxjs/operators";
+
+@Injectable({
+  providedIn: "root",
+})
+class PostAPI {
+  private readonly loadingSubject = new BehaviorSubject(false);
+
+  public isLoading$ = this.loadingSubject.asObservable();
+
+  public getPosts() {
+    this.loadingSubject.next(true);
+
+    return ajax.getJSON("https://jsonplaceholder.typicode.com/posts").pipe(
+      tap(() => {
+        this.loadingSubject.next(false);
+      })
+    );
+  }
+}
 
 @Component({
   selector: "app-hello",
@@ -6,18 +28,11 @@ import { AfterViewInit, Component } from "@angular/core";
   styleUrls: ["./hello.component.css"],
 })
 export class HelloComponent implements AfterViewInit {
-  isLoading = true;
+  constructor(public readonly postAPI: PostAPI) {}
 
   ngAfterViewInit(): void {
-    const pr = new Promise((resolve, reject) => {
-      this.isLoading = false;
-
-      // when we call `resolve`, `then callback` is schedule to be triggered in next(2nd) tick
-      resolve(null); // optional value, `null` is just for type checking safety
-    });
-
-    pr.then(() => {
-      this.isLoading = true;
+    this.postAPI.getPosts().subscribe((list) => {
+      console.log(list);
     });
   }
 }
