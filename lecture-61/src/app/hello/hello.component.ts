@@ -14,7 +14,9 @@ export class HelloComponent implements AfterViewInit {
     ajax
       .getJSON("https://jsonplaceholder.typicode.com/posts")
       .pipe(
-        startWith([]),
+        // Solution: comment out or don't use `startWith` operator,
+        // always be careful about the RxJS operators and their behavior
+        // startWith([]),
         tap(() => {
           this.isLoading = false;
         })
