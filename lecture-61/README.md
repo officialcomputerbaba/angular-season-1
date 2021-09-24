@@ -125,3 +125,11 @@ git checkout lecture-61-pr-cb
 ```
 
 ---
+
+## Exercise Problem
+
+An observable-based exercise problem, try to find the problem and a solution.
+
+```sh
+git checkout lecture-61-exercise
+```
