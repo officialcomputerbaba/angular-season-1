@@ -1,0 +1,14 @@
+.hide {
+  display: none;
+}
+
+.img-container {
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.img-container > img {
+  width: 100%;
+  height: 100%;
+}
