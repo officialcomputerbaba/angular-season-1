@@ -1,0 +1,11 @@
+.tree-node {
+  margin-left: 10px;
+}
+
+.tree-node p {
+  cursor: pointer;
+}
+
+.selected {
+  color: red;
+}

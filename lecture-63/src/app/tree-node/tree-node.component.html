@@ -1,0 +1,9 @@
+<section class="tree-node">
+  <p [class.selected]="isSelected" (click)="toggleSelection(!isSelected)">
+    <span *ngIf="node?.children?.length">*</span>
+    {{node.name}}
+  </p>
+
+  <app-tree-node (selectionEvent)="onChildSelectionEvent($event)" *ngFor="let node of node?.children" [node]="node">
+  </app-tree-node>
+</section>
