@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from "@angular/core";
+import { AfterViewInit, Component, Directive, ElementRef, QueryList, ViewChildren } from "@angular/core";
+
+@Directive({
+  selector: "[imgPreview]",
+})
+export class ImgPreviewDirective {
+  constructor(public readonly elemRef: ElementRef) {}
+}
 
 @Component({
   selector: "app-root",
@@ -6,7 +13,7 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from "@
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements AfterViewInit {
-  @ViewChildren("img") imgInpList!: QueryList<ElementRef>;
+  @ViewChildren(ImgPreviewDirective, { read: ElementRef }) imgInpList!: QueryList<ElementRef>;
 
   constructor() {}
 
