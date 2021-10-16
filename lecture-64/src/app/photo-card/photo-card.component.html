@@ -1,0 +1,17 @@
+<h1>User Photos</h1>
+
+<section>
+  Enter Id
+  <input (keyup.enter)="onIdChange(idInp.value);" #idInp type="text">
+
+  {{ id ? 'Valid id' : 'Not valid' }}
+</section>
+
+<br />
+
+<section>
+  <h2> {{ canDisplayPosts ? '' : 'No data' }} </h2>
+
+  <app-post *ngIf="canDisplayPosts"></app-post>
+
+</section>

@@ -1,0 +1,21 @@
+<section>
+
+    <div>
+        <app-photo-card></app-photo-card>
+    </div>
+
+    <div>
+        <app-post-card></app-post-card>
+    </div>
+
+    <div>
+        <h1>All Posts</h1>
+        <app-post [postOptions]="postOptions"></app-post>
+    </div>
+</section>
+
+
+<div>
+    <h1>Comments</h1>
+    <app-post [postOptions]="commentOptions"></app-post>
+</div>
