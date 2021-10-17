@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { PostOptions, POST_TYPE, UserPost } from "../interfaces";
 import { ajax } from "rxjs/ajax";
 
@@ -7,7 +7,7 @@ import { ajax } from "rxjs/ajax";
   templateUrl: "./post.component.html",
   styleUrls: ["./post.component.css"],
 })
-export class PostComponent {
+export class PostComponent implements OnInit {
   @Input() postOptions!: PostOptions;
 
   posts: UserPost[] = [];
