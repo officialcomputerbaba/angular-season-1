@@ -1,9 +1,12 @@
 <app-list>
-    <!-- @1, @2 multiple string tokens Query -->
-    <app-item #namedItem color listType value="Ajit"></app-item>
-    <app-item #namedItem color listType value="Ronaldo"></app-item>
 
-    <!-- @3, @4 multiple TemplateRef Query -->
-    <!-- <app-item #namedItem #item color listType value="Ajit"></app-item>
-    <app-item #item color listType type="DASH"></app-item> -->
+    <app-list>
+        <app-item #namedItem color listType value="Ajit">
+            <app-item #namedItem color listType value="Teacher">
+            </app-item>
+        </app-item>
+
+        <app-item #namedItem color listType value="Ronaldo"></app-item>
+    </app-list>
+
 </app-list>

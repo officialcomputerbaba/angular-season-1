@@ -9,45 +9,39 @@ import { ItemComponent, ItemService } from "../item/item.component";
   styleUrls: ["./list.component.css"],
 })
 export class ListComponent implements AfterContentInit {
-  // @1 query using string token `id` and `title`, read their string values
-  @ContentChildren("id,title") items!: QueryList<string>;
+  // NOTE: check the `app.component.html` and `item.component.html`
+
+  // @1 query using `ItemComponent`
+  @ContentChildren(ItemComponent, { descendants: true }) items!: QueryList<ItemComponent>;
 
   /********************************/
 
-  // @2 query using string token `id` and `title`, read `ItemComponent`
-  // @ContentChildren("id,title", { read: ItemComponent }) items!: QueryList<ItemComponent>;
+  // @2 query using string token `id` and `title`, read their string values
+  @ContentChildren("id,title", { descendants: true }) items!: QueryList<string>;
 
   /********************************/
 
-  // @3 query using TemplateRef 'namedItem' and 'item', read `ItemComponent`
-  // in `app.component.html` uncomment the @3,@4 and comment the @1,@2
-  // @ContentChildren("namedItem,item") items!: QueryList<ItemComponent>;
+  // @3 query using string token `id` and `title`, read `ItemComponent`
+  @ContentChildren("id,title", { descendants: true, read: ItemComponent }) items!: QueryList<ItemComponent>;
 
   /********************************/
 
-  // @4 query using TemplateRef 'namedItem' and 'item', read string token `id`
-  // in `app.component.html` uncomment the @3,@4 and comment the @1,@2
-  // @ContentChildren("namedItem,item", { read: "id" }) items!: QueryList<string>;
+  // @4 query using TemplateRef 'namedItem' and 'item', read `ItemComponent`
+  @ContentChildren("namedItem,item", { descendants: true }) items!: QueryList<ItemComponent>;
 
   constructor() {}
 
   ngAfterContentInit(): void {
-    // @1 token `id` and `title` values
-    this.items.forEach((item) => console.log(item));
-
+    // @1 `ItemComponent`
+    // this.items.forEach((item) => console.log(item));
     /********************************/
-
-    // @2 `ItemComponent`
-    // this.items.forEach((item) => console.log(item.value));
-
+    // @2 token `id` and `title` values
+    // this.items.forEach((item) => console.log(item));
     /********************************/
-
-    // @3 `ItemComponent`
-    // this.items.forEach((item) => console.log(item.value));
-
+    // @3 ItemComponent
+    // this.items.forEach((item) => console.log(item));
     /********************************/
-
-    // @4 token`id` values
+    // @4 ItemComponent
     // this.items.forEach((item) => console.log(item));
   }
 }
