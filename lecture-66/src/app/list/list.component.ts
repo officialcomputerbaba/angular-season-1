@@ -11,56 +11,49 @@ import { ItemComponent, ItemService } from "../item/item.component";
   encapsulation: ViewEncapsulation.None,
 })
 export class ListComponent implements AfterContentInit {
-  // @1 reading `ElementRef`
-  @ContentChild(ItemComponent, { read: ElementRef }) item!: ElementRef<HTMLElement>;
+  // @1 query using TemplateRef `namedItem` and read `id`
+  @ContentChild("namedItem", { read: "id" }) item!: string;
 
   /********************************/
 
-  // @2 reading directive named `ColorDirective`
-  // @ContentChild(ItemComponent, { read: ColorDirective }) item!: ColorDirective;
+  // @2 query using string token `id` and read `ItemService`
+  // @ContentChild("id", { read: ItemService }) item!: ItemService;
 
   /********************************/
 
-  // @3 reading directive named `ListTypeDirective`
-  // @ContentChild(ItemComponent, { read: ListTypeDirective }) item!: ListTypeDirective;
+  // @3 query using string token `title` and read `ItemComponent`
+  // @ContentChild("title", { read: ItemComponent }) item!: ItemComponent;
 
   /********************************/
 
-  // @4 reading string token `id`
-  // @ContentChild(ItemComponent, { read: "id" }) item!: string;
+  // @4 query using `ColorDirective` and read string token `id`
+  // @ContentChild(ColorDirective, { read: "id" }) item!: string;
 
   /********************************/
 
-  // @5 reading string token `title`
-  // @ContentChild(ItemComponent, { read: "title" }) item!: string;
+  // @5 query using `ListTypeDirective` and read `ColorDirective`
+  // @ContentChild(ListTypeDirective, { read: ColorDirective }) item!: ColorDirective;
 
   /********************************/
 
-  // @6 reading service `ItemService`
-  // @ContentChild(ItemComponent, { read: ItemService }) item!: ItemService;
-
-  /********************************/
-
-  // @7 reading `ItemComponent` query via TemplateRef `namedItem`
-  // the read option is default to `ItemComponent`
-  // @ContentChild("namedItem") item!: ItemComponent;
+  // @6 query using `ItemService` and read `ElementRef`
+  // @ContentChild(ItemService, { read: ElementRef }) item!: ElementRef<HTMLElement>;
 
   constructor() {}
 
   ngAfterContentInit(): void {
-    // @1 `ElementRef`
-    // optional, we need to enable the ViewEncapsulation.NONE for class to take the effect on component
-    this.item.nativeElement.classList.add("text-blue");
+    // @1 token `id`
+    console.log(this.item);
 
     /********************************/
 
-    // @2 `ColorDirective`
-    // this.item.apply("green");
+    // @2 `ItemService`
+    // this.item.getItems().subscribe(console.log);
 
     /********************************/
 
-    // @3 `ListTypeDirective`
-    // this.item.apply(LIST_TYPE.DASH);
+    // @3 `ItemComponent`
+    // console.log(this.item.value);
 
     /********************************/
 
@@ -69,16 +62,13 @@ export class ListComponent implements AfterContentInit {
 
     /********************************/
 
-    // @5 token `title`
-    // console.log(this.item);
-    /********************************/
-
-    // @6 `ItemService`
-    // this.item.getItems().subscribe(console.log);
+    // @5 `ColorDirective`
+    // this.item.apply();
 
     /********************************/
 
-    // @7 `ItemComponent`
-    // console.log(this.item.value);
+    // @6 `ElementRef`
+    // optional, we need to enable the ViewEncapsulation.NONE for class to take the effect on component
+    // this.item.nativeElement.classList.add("text-blue");
   }
 }
