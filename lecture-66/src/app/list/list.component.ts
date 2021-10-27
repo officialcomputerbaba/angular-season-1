@@ -1,4 +1,12 @@
-import { AfterContentInit, Component, ContentChild, ElementRef, ViewEncapsulation } from "@angular/core";
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ContentChildren,
+  QueryList,
+  ElementRef,
+  ViewEncapsulation,
+} from "@angular/core";
 import { ColorDirective, ListTypeDirective } from "../directives/item-directives";
 import { LIST_TYPE } from "../enum";
 import { ItemComponent, ItemService } from "../item/item.component";
@@ -11,64 +19,79 @@ import { ItemComponent, ItemService } from "../item/item.component";
   encapsulation: ViewEncapsulation.None,
 })
 export class ListComponent implements AfterContentInit {
-  // @1 query using TemplateRef `namedItem` and read `id`
-  @ContentChild("namedItem", { read: "id" }) item!: string;
+  // @1 query using TemplateRef `namedItem` and read `title` values
+  @ContentChildren("namedItem", { read: "title" }) items!: QueryList<string>;
 
   /********************************/
 
-  // @2 query using string token `id` and read `ItemService`
-  // @ContentChild("id", { read: ItemService }) item!: ItemService;
+  // @2 query using string token `id` and read `id` values
+  // read option default to `id`
+  // @ContentChildren("id") items!: QueryList<string>;
 
   /********************************/
 
   // @3 query using string token `title` and read `ItemComponent`
-  // @ContentChild("title", { read: ItemComponent }) item!: ItemComponent;
+  // @ContentChildren("title", { read: ItemComponent }) items!: QueryList<ItemComponent>;
 
   /********************************/
 
-  // @4 query using `ColorDirective` and read string token `id`
-  // @ContentChild(ColorDirective, { read: "id" }) item!: string;
+  // @4 query using `ColorDirective` and read `ColorDirective`
+  // read option default to `ColorDirective`
+  // @ContentChildren(ColorDirective) items!: QueryList<ColorDirective>;
 
   /********************************/
 
-  // @5 query using `ListTypeDirective` and read `ColorDirective`
-  // @ContentChild(ListTypeDirective, { read: ColorDirective }) item!: ColorDirective;
+  // @5 query using `ListTypeDirective` and read `ElementRef`
+  // @ContentChildren(ListTypeDirective, { read: ElementRef }) items!: QueryList<ElementRef<HTMLElement>>;
 
   /********************************/
 
-  // @6 query using `ItemService` and read `ElementRef`
-  // @ContentChild(ItemService, { read: ElementRef }) item!: ElementRef<HTMLElement>;
+  // @6 query using `ItemService` and read `ItemService`
+  // read option default to `ItemService`
+  // @ContentChildren(ItemService) items!: QueryList<ItemService>;
+
+  /********************************/
+
+  // @7 query using `ItemService` and read `ListTypeDirective`
+  // @ContentChildren(ItemService, { read: ListTypeDirective }) items!: QueryList<ListTypeDirective>;
 
   constructor() {}
 
   ngAfterContentInit(): void {
-    // @1 token `id`
-    console.log(this.item);
+    // @1 token `title`
+    this.items.forEach((item) => console.log(item));
 
     /********************************/
 
-    // @2 `ItemService`
-    // this.item.getItems().subscribe(console.log);
+    // @2 token `id`
+    // this.items.forEach((item) => console.log(item));
 
     /********************************/
 
     // @3 `ItemComponent`
-    // console.log(this.item.value);
+    // this.items.forEach((item) => console.log(item.value));
 
     /********************************/
 
-    // @4 token `id`
-    // console.log(this.item);
+    // @4 `ColorDirective`
+    // const colors = ["red", "green"];
+    // this.items.forEach((color, index) => color.apply(colors[index]));
 
     /********************************/
 
-    // @5 `ColorDirective`
-    // this.item.apply();
-
-    /********************************/
-
-    // @6 `ElementRef`
+    // @5 `ElementRef`
     // optional, we need to enable the ViewEncapsulation.NONE for class to take the effect on component
-    // this.item.nativeElement.classList.add("text-blue");
+    // this.items.forEach((item) => item.nativeElement.classList.add("text-blue"));
+
+    /********************************/
+
+    // @6 `ItemService`
+    // this.items.forEach((item) => item.getItems().subscribe(console.log));
+
+    /********************************/
+
+    // @7 `ListTypeDirective`
+    // const types = [LIST_TYPE.DASH, LIST_TYPE.BULLET];
+    // this.items.forEach((listType, index) => listType.apply(types[index]));
   }
 }
