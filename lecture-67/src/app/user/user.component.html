@@ -1,20 +1,20 @@
-<h1>User</h1>
+<h1>Users</h1>
 
-<div>
-    Id : {{ user?.id }}
-
-    <br />
-
-    Name : {{ user?.name }}
-
-    <br />
-
-    Email : {{ user?.email }}
-
-</div>
-
+Order By Desc <input type="checkbox" #orderType [checked]="isDescOrder" (change)="changeOrder(orderType.checked)">
 
 <hr />
 
+<div *ngFor="let user of users">
+  Id : {{ user?.id }}
 
-Suggested Username : {{ username }}
+  <br />
+
+  Name : {{ user?.name }}
+
+  <br />
+
+  Email : {{ user?.email }}
+
+
+  <hr />
+</div>

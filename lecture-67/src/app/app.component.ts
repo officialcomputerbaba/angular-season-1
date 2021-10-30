@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ajax } from "rxjs/ajax";
+import { User } from "./interfaces";
 
 @Component({
   selector: "app-root",
@@ -6,15 +8,21 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  user = {
-    name: "Ajit",
-    id: 1,
-    email: "xyz@gmail.com",
-  };
+  users: User[] = [];
 
   ngOnInit() {}
 
-  setName(name: string) {
-    this.user.name = name;
+  getUser(id: string) {
+    if (!id || !id.trim().length) {
+      return;
+    }
+
+    if (this.users.find((u) => u.id === +id)) {
+      return;
+    }
+
+    ajax.getJSON<User>(`https://jsonplaceholder.typicode.com/users/${id}`).subscribe((user) => {
+      this.users.push(user);
+    });
   }
 }

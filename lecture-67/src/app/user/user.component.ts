@@ -1,19 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { from } from "rxjs";
-import { reduce } from "rxjs/operators";
 import { User } from "../interfaces";
-
-function getUserName(name: string) {
-  const prefix = ["Cool", "Rapid", "Hot", "Nice", "Pro", "Lord"];
-
-  const randomNum = (max: number) => ~~(Math.random() * max);
-
-  const nameWithPrefix = prefix[randomNum(prefix.length)] + name;
-
-  const nameReducer = (username: string) => username + randomNum(name.length);
-
-  return from(name).pipe(reduce(nameReducer, nameWithPrefix));
-}
 
 @Component({
   selector: "app-user",
@@ -21,24 +7,35 @@ function getUserName(name: string) {
   styleUrls: ["./user.component.css"],
 })
 export class UserComponent {
-  @Input() user!: User;
+  @Input() users: User[] = [];
 
-  public username!: string;
+  isDescOrder = false;
 
-  private currentName!: string;
+  size: number = 0;
 
   constructor() {}
 
   ngDoCheck() {
     // condition is important to prevent unwanted executions for performance reasons
-    if (this.user.name === this.currentName) {
+    if (this.users.length === this.size) {
       return;
     }
 
-    this.currentName = this.user.name;
+    this.size = this.users.length;
 
-    getUserName(this.currentName).subscribe((username) => {
-      this.username = username;
+    this.sortUsers();
+  }
+
+  private sortUsers() {
+    this.users.sort((user1, user2) => {
+      const orderDirection = user2.name.localeCompare(user1.name);
+
+      return this.isDescOrder ? orderDirection : -orderDirection;
     });
+  }
+
+  changeOrder(isDesc: boolean) {
+    this.isDescOrder = isDesc;
+    this.sortUsers();
   }
 }
