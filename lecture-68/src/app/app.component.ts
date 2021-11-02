@@ -1,9 +1,5 @@
 import { Component } from "@angular/core";
 
-function getUserId() {
-  return +Date.now().toString().slice(-4);
-}
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -12,11 +8,7 @@ function getUserId() {
 export class AppComponent {
   isDestroyed = false;
 
-  userId: number = getUserId();
-
   toggleComponent() {
     this.isDestroyed = !this.isDestroyed;
-
-    this.userId = getUserId();
   }
 }

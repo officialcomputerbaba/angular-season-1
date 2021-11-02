@@ -1,5 +1,7 @@
-<button (click)="toggleComponent()">{{ isDestroyed ? 'Create' : 'Destroy' }} Component</button>
+<button (click)="toggleComponent()">Show {{ isDestroyed ? 'Latest' : 'Regular' }} Products</button>
 
 <hr />
 
-<app-user-chat-feed *ngIf="!isDestroyed" [userId]="userId"></app-user-chat-feed>
+<app-latest-products *ngIf="!isDestroyed"></app-latest-products>
+
+<app-regular-products *ngIf="isDestroyed"></app-regular-products>
