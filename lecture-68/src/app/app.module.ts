@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
-import { LatestProductsComponent } from './latest-products/latest-products.component';
-import { RegularProductsComponent } from './regular-products/regular-products.component';
+import { ComposeComponent } from "./compose/compose.component";
 
 @NgModule({
-  declarations: [AppComponent, LatestProductsComponent, RegularProductsComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent, ComposeComponent],
+  imports: [BrowserModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

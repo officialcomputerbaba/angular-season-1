@@ -1,0 +1,30 @@
+<section class="container">
+
+    <h2>Compose Message</h2>
+
+    <article [formGroup]="msgForm" class="msg-section">
+
+        <div>
+            <label>To</label>
+            <input formControlName="email">
+        </div>
+
+        <div>
+            <label>Subject</label>
+            <input formControlName="subject">
+        </div>
+
+        <div>
+            <label>Message</label>
+            <textarea formControlName="message"></textarea>
+        </div>
+
+    </article>
+
+    <article class="actions">
+        <button>Send</button>
+
+        <button>Cancel</button>
+    </article>
+
+</section>

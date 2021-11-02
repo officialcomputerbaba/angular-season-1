@@ -1,7 +1,5 @@
-<button (click)="toggleComponent()">Show {{ isDestroyed ? 'Latest' : 'Regular' }} Products</button>
+<button (click)="toggleComponent()">{{ isDestroyed ? 'Create' : 'Destroy' }} Component</button>
 
 <hr />
 
-<app-latest-products *ngIf="!isDestroyed"></app-latest-products>
-
-<app-regular-products *ngIf="isDestroyed"></app-regular-products>
+<app-compose *ngIf="!isDestroyed"></app-compose>
