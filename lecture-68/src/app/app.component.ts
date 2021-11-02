@@ -5,10 +5,4 @@ import { Component } from "@angular/core";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
-  isDestroyed = false;
-
-  toggleComponent() {
-    this.isDestroyed = !this.isDestroyed;
-  }
-}
+export class AppComponent {}

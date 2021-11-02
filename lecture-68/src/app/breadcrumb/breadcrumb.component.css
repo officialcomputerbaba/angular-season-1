@@ -1,0 +1,15 @@
+li {
+  list-style: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+li::after {
+  content: " /";
+}
+
+li:last-of-type {
+  color: blue;
+}

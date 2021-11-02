@@ -1,0 +1,6 @@
+Add Item <input #itemName (keyup.enter)="addItem(itemName.value)">
+
+<ng-container *ngFor="let item of items; let i = index;">
+  <app-item [name]="item"></app-item>
+  <button (click)="removeItem(i)">Remove</button>
+</ng-container>
