@@ -1,0 +1,5 @@
+<button (click)="toggleComponent()">{{ isDestroyed ? 'Create' : 'Destroy' }} Component</button>
+
+<hr />
+
+<app-clock *ngIf="!isDestroyed"></app-clock>
