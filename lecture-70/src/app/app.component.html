@@ -1,1 +1,3 @@
-{{ email | safeEmail }}
+<input #date (keyup.enter)="birthday = date.value">
+
+<p>Age : {{ birthday | age }}</p>
