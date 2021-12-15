@@ -1,3 +1,14 @@
-<input #date (keyup.enter)="birthday = date.value">
+<h2>Profile</h2>
 
-<p>Age : {{ birthday | age }}</p>
+<p>Name: Ajit</p>
+<a [href]="twitterLink"> {{ twitterLink | twitter }}</a>
+
+<hr />
+
+<h3>Add New Twitter User</h3>
+
+Username: <input #unBox (keyup.enter)="username = unBox.value; unBox.value = ''">
+
+<br />
+
+<a [href]="username | twitter:'url'"> {{ username }} </a>

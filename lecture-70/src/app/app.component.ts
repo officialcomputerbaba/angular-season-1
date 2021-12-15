@@ -6,5 +6,7 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  birthday!: string | Date;
+  twitterLink = "https://www.twitter.com/akacomputerbaba";
+
+  username!: string;
 }
