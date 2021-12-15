@@ -1,14 +1,7 @@
-<h2>Profile</h2>
+<h2>Admin Phone Configs</h2>
 
-<p>Name: Ajit</p>
-<a [href]="twitterLink"> {{ twitterLink | twitter }}</a>
+Phone: <input #phn (keyup.enter)="phone = phn.value">
+Length: <input #trimLen (keyup.enter)="trimLength = trimLen.value">
+Pattern: <input #pat (keyup.enter)="pattern = pat.value">
 
-<hr />
-
-<h3>Add New Twitter User</h3>
-
-Username: <input #unBox (keyup.enter)="username = unBox.value; unBox.value = ''">
-
-<br />
-
-<a [href]="username | twitter:'url'"> {{ username }} </a>
+<p>{{ phone | phone:trimLength :pattern }}</p>

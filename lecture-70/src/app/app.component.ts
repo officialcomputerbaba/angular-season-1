@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  twitterLink = "https://www.twitter.com/akacomputerbaba";
-
-  username!: string;
+  phone = "9998889999";
+  trimLength: string | number = 3;
+  pattern = "-";
 }
