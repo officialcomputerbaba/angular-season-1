@@ -2,9 +2,9 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { SortPipe } from "./pipes";
+import { FilterPipe, SortPipe } from "./pipes";
 
-const PIPES = [SortPipe];
+const PIPES = [FilterPipe, SortPipe];
 
 @NgModule({
   declarations: [AppComponent, ...PIPES],
