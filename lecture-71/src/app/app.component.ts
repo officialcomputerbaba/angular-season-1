@@ -9,4 +9,12 @@ export class AppComponent {
   names = ["Ronaldo", "Ajit", "Sagar", "Anusha", "Aniket", "Pankaj", "Amitabh"];
 
   filterKey!: string;
+
+  addName(name: string): void {
+    if (!name || !name?.trim().length) {
+      return;
+    }
+
+    this.names.push(name);
+  }
 }

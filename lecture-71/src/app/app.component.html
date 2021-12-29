@@ -1,3 +1,7 @@
+Name: <input #name (keyup.enter)="addName(name.value); name.value = '';">
+
+<hr />
+
 Search: <input #srch (keyup.enter)="filterKey = srch.value;">
 
 <p *ngFor="let name of names | filter:filterKey">
