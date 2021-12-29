@@ -1,9 +1,8 @@
-Name: <input #name (keyup.enter)="addName(name.value); name.value = '';">
+Sort by: <select #sort (change)="sortKey = sort.value">
+    <option value="asc">Asc</option>
+    <option value="desc">Desc</option>
+</select>
 
-<hr />
-
-Search: <input #srch (keyup.enter)="filterKey = srch.value;">
-
-<p *ngFor="let name of names | filter:filterKey">
+<p *ngFor="let name of names | sort:sortKey">
     {{ name }}
 </p>
