@@ -1,0 +1,5 @@
+Search: <input #srch (keyup.enter)="filterKey = srch.value;">
+
+<p *ngFor="let name of names | filter:filterKey">
+    {{ name }}
+</p>
