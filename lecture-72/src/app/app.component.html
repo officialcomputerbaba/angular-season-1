@@ -1,7 +1,16 @@
-<input #dateInp (keyup.enter)="date = dateInp.value">
+<section>
 
-<hr />
+    <input #name (keyup.enter)="changeName(name.value); name.value = '';">
 
-<h3>Difference since Last Date</h3>
+    <br />
 
-{{ date | dateState }} days
+    Name: {{ user.name }}
+
+    <br />
+
+    Email: {{ user.email }}
+
+    <br />
+
+    <img [src]="user | userPicture">
+</section>

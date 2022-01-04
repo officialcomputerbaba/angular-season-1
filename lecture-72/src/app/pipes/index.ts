@@ -1,1 +1,1 @@
-export * from "./date-state.pipe";
+export * from "./user-picture.pipe";
