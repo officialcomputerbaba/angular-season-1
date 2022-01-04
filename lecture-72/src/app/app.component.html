@@ -1,0 +1,7 @@
+<input #dateInp (keyup.enter)="date = dateInp.value">
+
+<hr />
+
+<h3>Difference since Last Date</h3>
+
+{{ date | dateState }} days
