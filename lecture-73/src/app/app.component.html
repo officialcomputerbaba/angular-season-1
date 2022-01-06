@@ -1,0 +1,13 @@
+<p>
+    Rate of Increment
+    <br />
+    <small>1 count / {{ timeInMs }} ms </small>
+</p>
+
+<input #time (keyup.enter)="setTimeInMs(time.value); time.value = '';">
+
+<p *ngIf="!isDestroyed">
+    Completed {{ timeInMs | timer }} %
+</p>
+
+<button (click)="isDestroyed = !isDestroyed">Toggle Pipe</button>
