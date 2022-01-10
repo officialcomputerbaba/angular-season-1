@@ -1,7 +1,9 @@
+<ul>
+    <li *ngFor="let user of users">
+        <!-- Name {{ user.name }}, Distance {{ milesToKm(user.distance) }} -->
+
+        Name {{ user.name }}, Distance {{ milesToKm | memoizedFn: user.distance }}
+    </li>
+</ul>
+
 <button (click)="0">Trigger</button>
-
-<hr />
-
-<app-company></app-company>
-
-<app-products></app-products>
