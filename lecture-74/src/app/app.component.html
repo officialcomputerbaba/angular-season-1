@@ -1,0 +1,21 @@
+<h1>Your Trip Quote</h1>
+
+<div *ngIf="trip">
+
+    From: {{ trip.from }}
+    <br />
+
+    To: {{ trip.to }}
+    <br />
+
+    Distance: {{ trip.distance }}
+    <br />
+
+    <!-- Rate {{ rateCharge(trip.distance) }} INR -->
+
+    Rate {{ rateCharge | memoizedFn: trip.distance }} INR
+</div>
+
+<hr />
+
+<button (click)="0">Trigger</button>
