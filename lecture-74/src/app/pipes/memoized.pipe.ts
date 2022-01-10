@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from "@angular/core";
   name: "memoizedFn",
 })
 export class MemoizedFnPipe implements PipeTransform {
-  transform(fn: Function, ...args: unknown[]) {
-    return fn(...args);
+  transform(fn: Function, thisArg: any, ...args: unknown[]) {
+    return fn.call(thisArg, ...args);
   }
 }

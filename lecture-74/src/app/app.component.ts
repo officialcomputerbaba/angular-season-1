@@ -11,18 +11,11 @@ export class AppComponent {
 
   file!: File;
 
-  sizeCharge: Function;
-
-  constructor() {
-    // binded context
-    this.sizeCharge = this.getCharge.bind(this);
-  }
-
   addFile(files: FileList | null) {
     this.file = files?.item(0) as File;
   }
 
-  private getCharge(bytes: number = 0) {
+  sizeCharge(bytes: number = 0) {
     console.log("Called", bytes);
 
     const { size, unit } = formatBytes(bytes);

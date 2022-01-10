@@ -4,6 +4,7 @@
 
 <hr />
 
-{{ sizeCharge | memoizedFn: file?.size }}
+<!-- this context in memoizedFn pipe (check the memoized pipe) -->
+{{ sizeCharge | memoizedFn :this :file?.size }}
 
 <button (click)="0">Trigger</button>
