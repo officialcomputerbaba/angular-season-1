@@ -1,9 +1,9 @@
-<ul>
-    <li *ngFor="let user of users">
-        <!-- Name {{ user.name }}, Distance {{ milesToKm(user.distance) }} -->
+<h1>Upload file</h1>
 
-        Name {{ user.name }}, Distance {{ milesToKm | memoizedFn: user.distance }}
-    </li>
-</ul>
+<input type="file" #fileInp (change)="addFile(fileInp.files)">
+
+<hr />
+
+{{ sizeCharge | memoizedFn: file?.size }}
 
 <button (click)="0">Trigger</button>

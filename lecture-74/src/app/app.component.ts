@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { milesToKm } from "./utils/distance.utils";
+import { formatBytes } from "./utils/bytes.utils";
 
 @Component({
   selector: "app-root",
@@ -7,11 +7,22 @@ import { milesToKm } from "./utils/distance.utils";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  users = [
-    { name: "Ajit", distance: 2.5 },
-    { name: "Anusha", distance: 5 },
-    { name: "Sagar", distance: 3.2 },
-  ];
+  baseCharge = 0.03;
 
-  milesToKm = milesToKm;
+  file!: File;
+
+  addFile(files: FileList | null) {
+    this.file = files?.item(0) as File;
+  }
+
+  // arrow function
+  sizeCharge = (bytes: number = 0) => {
+    console.log("Called", bytes);
+
+    const { size, unit } = formatBytes(bytes);
+
+    const charge = size * this.baseCharge;
+
+    return charge;
+  };
 }
