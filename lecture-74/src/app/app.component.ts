@@ -11,12 +11,18 @@ export class AppComponent {
 
   file!: File;
 
+  sizeCharge: Function;
+
+  constructor() {
+    // binded context
+    this.sizeCharge = this.getCharge.bind(this);
+  }
+
   addFile(files: FileList | null) {
     this.file = files?.item(0) as File;
   }
 
-  // arrow function
-  sizeCharge = (bytes: number = 0) => {
+  private getCharge(bytes: number = 0) {
     console.log("Called", bytes);
 
     const { size, unit } = formatBytes(bytes);
@@ -24,5 +30,5 @@ export class AppComponent {
     const charge = size * this.baseCharge;
 
     return charge;
-  };
+  }
 }
