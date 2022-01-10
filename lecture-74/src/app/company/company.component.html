@@ -1,0 +1,20 @@
+<h2>Companies Record</h2>
+
+<div *ngFor="let record of records">
+
+    Name: {{ record.company }}
+
+    <br />
+
+    Role: {{ record.role }}
+
+    <br />
+
+    Balance: {{ record.sheet.balance }}
+</div>
+
+<hr />
+
+<!-- Total balance {{ totalBalance(records) }} -->
+
+Total balance {{ totalBalance | memoizedFn: records }}
