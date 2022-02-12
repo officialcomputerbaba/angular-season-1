@@ -1,11 +1,15 @@
-import { Component OnInit } from "@angular/core";
+import { Component, Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { User } from "./interfaces";
 
-
-function getUsers() {
-  return ajax.getJSON<User[]>("https://jsonplaceholder.typicode.com/users");
+@Injectable({
+  providedIn: "root",
+})
+export class UserService {
+  public getUsers() {
+    return ajax.getJSON<User[]>("https://jsonplaceholder.typicode.com/users");
+  }
 }
 
 @Component({
@@ -16,9 +20,9 @@ function getUsers() {
 export class AppComponent implements OnInit {
   usersList$!: Observable<User[]>;
 
-  constructor() {}
+  constructor(private readonly userService: UserService) {}
 
   ngOnInit() {
-    this.usersList$ = getUsers();
+    this.usersList$ = this.userService.getUsers();
   }
 }
