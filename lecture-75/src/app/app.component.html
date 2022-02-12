@@ -1,6 +1,7 @@
-<app-clock *ngIf="isShowing"></app-clock>
+<div *ngFor="let user of (usersList$ | async)">
 
+  Name: {{ user.name }}
+  Email: {{ user.email }}
 
-<hr />
-
-<button (click)="isShowing = !isShowing">Toggle time</button>
+  <hr />
+</div>
