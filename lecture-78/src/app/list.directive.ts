@@ -1,10 +1,14 @@
-import { Directive, ElementRef, TemplateRef } from "@angular/core";
+import { Directive, ElementRef, TemplateRef, ViewContainerRef } from "@angular/core";
 
 @Directive({
   selector: "[list]",
 })
 export class ListDirective {
-  constructor(private readonly elemRef: ElementRef, private readonly templateRef: TemplateRef<any>) {
+  constructor(
+    private readonly elemRef: ElementRef,
+    private readonly templateRef: TemplateRef<any>,
+    private readonly container: ViewContainerRef
+  ) {
     this.listOperation();
   }
 
@@ -15,5 +19,8 @@ export class ListDirective {
 
     // `<ng-template>` reference
     console.log(this.templateRef);
+
+    // create view from `<ng-template>` using `ViewContainerRef`
+    this.container.createEmbeddedView(this.templateRef);
   }
 }
