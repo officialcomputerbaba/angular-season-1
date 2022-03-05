@@ -1,19 +1,16 @@
-import { Directive, ElementRef } from "@angular/core";
+import { Directive, ElementRef, ViewContainerRef } from "@angular/core";
 
 @Directive({
   selector: "[list]",
 })
 export class ListDirective {
-  constructor(private readonly elemRef: ElementRef) {
-    console.log(this.elemRef.nativeElement);
+  constructor(private readonly elemRef: ElementRef, private readonly container: ViewContainerRef) {
     this.listOperation();
   }
 
   private listOperation() {
-    const ul = this.elemRef.nativeElement as HTMLUListElement;
+    console.log(this.elemRef.nativeElement);
 
-    ul.classList.add("custom-list");
-
-    ul.addEventListener("click", () => alert("List clicked"));
+    console.log(this.container);
   }
 }
