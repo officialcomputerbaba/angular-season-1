@@ -1,0 +1,29 @@
+<!-- mime type & size restriction -->
+<!-- <input #file="fileControl" [fileInput]="['pdf', 1]" (fileChanged)="onFileChanged($event)"
+    (error)="onFileInputError($event)" type="file"> -->
+
+<!-- only mime type restriction -->
+<!-- <input #file="fileControl" fileInput="pdf" (fileChanged)="onFileChanged($event)"
+    (error)="onFileInputError($event)" type="file"> -->
+
+
+<input #file="fileControl" fileInput [size]="1" [mime]="['pdf', 'png', 'jpeg']" (fileChanged)="onFileChanged($event)"
+    (error)="onFileInputError($event)" type="file">
+
+<section class="preview-container" *ngIf="file.value">
+
+    <div class="image-preview" *ngIf="file.isImage; else filePreview">
+        <img [src]="file.fileUrl" [alt]="file.fileName">
+    </div>
+
+    <ng-template #filePreview>
+        <div class="file-preview">
+            {{ file.fileName }}
+        </div>
+    </ng-template>
+
+    <div>
+        <button (click)="file.triggerChange()">Change</button>
+        <button (click)="file.removeFile()">Remove</button>
+    </div>
+</section>
