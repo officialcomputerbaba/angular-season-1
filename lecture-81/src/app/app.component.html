@@ -1,0 +1,11 @@
+<!-- mime type & size restriction -->
+<!-- <input [fileInput]="['pdf', 1]" type="file"> -->
+
+<!-- only mime type restriction -->
+<!-- <input fileInput="pdf" type="file"> -->
+
+<!--  separate mime type and size restriction -->
+<!-- <input fileInput [size]="1" [mime]="'pdf'" type="file"> -->
+
+<!--  separate mime type list and size restriction -->
+<input fileInput [size]="0.7" [mime]="['pdf', 'png', 'jpeg']" type="file">
