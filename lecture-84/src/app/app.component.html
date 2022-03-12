@@ -7,23 +7,23 @@
     (error)="onFileInputError($event)" type="file"> -->
 
 
-<input #file="fileControl" fileInput [size]="1" [mime]="['pdf', 'png', 'jpeg']" (fileChanged)="onFileChanged($event)"
+<input fileInput [size]="1" [mime]="['pdf', 'png', 'jpeg']" (fileChanged)="onFileChanged($event)"
     (error)="onFileInputError($event)" type="file">
 
-<section class="preview-container" *ngIf="file.value">
+<section class="preview-container" *ngIf="finDirective?.value">
 
-    <div class="image-preview" *ngIf="file.isImage; else filePreview">
-        <img [src]="file.fileUrl" [alt]="file.fileName">
+    <div class="image-preview" *ngIf="finDirective.isImage; else filePreview">
+        <img [src]="finDirective?.fileUrl" [alt]="finDirective?.fileName">
     </div>
 
     <ng-template #filePreview>
         <div class="file-preview">
-            {{ file.fileName }}
+            {{ finDirective?.fileName }}
         </div>
     </ng-template>
 
     <div>
-        <button (click)="file.triggerChange()">Change</button>
-        <button (click)="file.removeFile()">Remove</button>
+        <button (click)="finDirective.triggerChange()">Change</button>
+        <button (click)="finDirective.removeFile()">Remove</button>
     </div>
 </section>

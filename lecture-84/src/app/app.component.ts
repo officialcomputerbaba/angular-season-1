@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { FileChangedEvent } from "./file-input.directive";
+import { Component, ViewChild } from "@angular/core";
+import { FileChangedEvent, FileInputDirective } from "./file-input.directive";
 
 @Component({
   selector: "app-root",
@@ -8,6 +8,8 @@ import { FileChangedEvent } from "./file-input.directive";
 })
 export class AppComponent {
   imageURL!: string;
+
+  @ViewChild(FileInputDirective) finDirective!: FileInputDirective;
 
   onFileChanged(evt: FileChangedEvent) {
     this.imageURL = evt.url as string;
