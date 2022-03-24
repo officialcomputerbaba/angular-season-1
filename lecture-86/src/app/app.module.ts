@@ -4,9 +4,10 @@ import { AccordionDirective } from "./accordion.directive";
 
 import { AppComponent } from "./app.component";
 import { TabComponent } from "./tab/tab.component";
+import { AccordionComponent } from "./accordion/accordion.component";
 
 @NgModule({
-  declarations: [AppComponent, AccordionDirective, TabComponent],
+  declarations: [AppComponent, AccordionDirective, TabComponent, AccordionComponent],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
