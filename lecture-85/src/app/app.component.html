@@ -1,0 +1,10 @@
+<!-- <input type="text" [trimLength]="5" upperCase> -->
+
+<!-- <input type="text" [trimLength]="5" [trimLengthPattern]="'^[a-zA-z].*'" upperCase [upperCasePattern]="'^[a-zA-Z].*'"> -->
+
+<!-- <input type="text" [trimLength]="5" (valueTrimmed)="onValueTrim($event)" upperCase
+  (caseConvertion)="onCaseConverstion($event)"> -->
+
+
+<input type="text" [trimLength]="5" [trimLengthPattern]="'^[a-zA-z].*'" (valueTrimmed)="onValueTrim($event)" upperCase
+    [upperCasePattern]="'^[a-zA-Z].*'" (caseConvertion)="onCaseConvertion($event)">
