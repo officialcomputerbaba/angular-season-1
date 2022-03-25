@@ -1,6 +1,3 @@
-<h1 *paint>Hello I am paint</h1>
-
-<!-- converted ng-template form -->
-<!-- <ng-template paint>
-  <h1>Hello I am paint</h1>
-</ng-template> -->
+<ng-template paint let-data let-n="name" let-loc="location">
+    <h1>Hello {{ n }}, I am {{ data }} from {{ loc }}</h1>
+</ng-template>
