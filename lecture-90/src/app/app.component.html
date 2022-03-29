@@ -1,0 +1,33 @@
+<input type="file" #imageInput>
+
+<hr />
+
+<!-- @example 1 -->
+<!-- <img *imageOutlet="imageInput; let src" [src]="src">
+
+<ng-template [imageOutlet]="imageInput" let-src>
+  <img [src]="src">
+</ng-template> -->
+
+
+<!-- @example 2 -->
+<!-- <img *imageOutlet="let src from imageInput" [src]="src">
+
+<ng-template imageOutlet let-src [imageOutletFrom]="imageInput">
+  <img [src]="src">
+</ng-template> -->
+
+
+<!-- @example 3 -->
+<!-- <img *imageOutlet="imageInput; let src, let fname = filename;" [src]="src" [alt]="fname">
+
+<ng-template [imageOutlet]="imageInput" let-src let-fname="filename">
+  <img [src]="src" [alt]="fname">
+</ng-template> -->
+
+<!-- @example 4 -->
+<img *imageOutlet="let src from imageInput; let fname = filename" [src]="src" [alt]="fname">
+
+<ng-template imageOutlet let-src [imageOutletFrom]="imageInput" let-fname="filename">
+    <img [src]="src" [alt]="fname">
+</ng-template>
