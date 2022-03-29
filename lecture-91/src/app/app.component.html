@@ -1,0 +1,26 @@
+Start <input type="text" (input)="onInput('start', startInp.value)" #startInp />
+
+<br />
+
+End <input type="text" (input)="onInput('end', endInp.value)" #endInp />
+
+<hr />
+
+<!-- @example 1 -->
+<div *range="let item in [start, end]; let i = index">
+    {{ item }} {{ i }}
+</div>
+
+<!-- <ng-template range [rangeIn]="[start,end]" let-item let-i="index">
+  <div>{{ item }} {{ i }}</div>
+</ng-template> -->
+
+
+<!-- @example 2 -->
+<!-- <div *range="let item in [start, end]; index as i">
+    {{ item }} {{ i }}
+</div> -->
+
+<!-- <ng-template range [rangeIn]="[start,end]" let-item let-i="index">
+  <div>{{ item }} {{ i }}</div>
+</ng-template> -->
